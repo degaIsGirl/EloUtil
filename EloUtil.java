@@ -1,6 +1,5 @@
 package com.example.share;
 
-import cn.hutool.core.util.NumberUtil;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
@@ -225,7 +224,7 @@ public class EloUtil {
             winRate = winRate.setScale(PROCESS_RATE, RoundingMode.HALF_DOWN);
             this.cacheWinRate.put(keyName, winRate);
             this.cacheWinRate.put(flapKeyName,
-                    NumberUtil.sub(1, winRate)
+                    new BigDecimal("1").subtract(winRate)
             );
             return winRate;
         }
